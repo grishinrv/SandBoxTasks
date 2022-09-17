@@ -1,4 +1,5 @@
 using WebApi.Model;
+using System;
 
 namespace WebApi.Infrastucture;
 
@@ -17,6 +18,6 @@ public interface IPriceRepository
     /// <param name="citiesOfPriceRegistration">if null then all known cities</param>
     /// <returns></returns>
     List<PriceData> GetPrices(DateTime since, DateTime till, List<string> citiesOfPriceRegistration = null);
-    // todo любые другие перегрузки GetPrices необходимые в классах бизнес логики для выбора данных из бд
-    // List<PriceData> GetPrices(List<Good> goods);
+    // todo any overloads GetPrices reqired in business logic classes to select data from DB
+    List<PriceData> GetPrices(List<Good> goods, Store store);
 }

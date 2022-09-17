@@ -2,6 +2,13 @@ namespace WebApi.Model;
 
 public enum Good
 {
-    Milk = 0,
-    // todo
+    Bread,
+    Carrot,
+    Eggs,
+    Milk,
+    Meat,
+    Oil,
+    Potato,
+    Sugar,
+    Water
 }
