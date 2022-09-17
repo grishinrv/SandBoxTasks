@@ -1,6 +1,4 @@
-﻿// See https://aka.ms/new-console-template for more information
-
-using Linq.Data;
+﻿using Linq.Data;
 
 var dataset = DataSetFactory.CreateDataSet();
 OutputJobTitlesOfAllEmployeesWhosBossIsCEO(dataset);
