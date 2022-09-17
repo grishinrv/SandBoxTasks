@@ -6,6 +6,9 @@
 #jetbrains files
 .idea/
 
+#docker compose environment variables file
+.env
+
 #Mac OS special files and folders
 .DS_Store
 
