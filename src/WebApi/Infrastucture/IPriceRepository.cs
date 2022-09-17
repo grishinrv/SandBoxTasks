@@ -1,5 +1,4 @@
 using WebApi.Model;
-using System;
 
 namespace WebApi.Infrastucture;
 
