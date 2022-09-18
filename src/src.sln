@@ -4,6 +4,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Linq", "Linq\Linq.csproj", 
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebApi", "WebApi\WebApi.csproj", "{066BF045-A8D3-4C22-B7A0-C9B8E2B45975}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DataAccessLayer", "DataAccessLayer\DataAccessLayer.csproj", "{7483C819-82CE-4BDE-91D3-DE132DF35FE6}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -18,5 +20,9 @@ Global
 		{066BF045-A8D3-4C22-B7A0-C9B8E2B45975}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{066BF045-A8D3-4C22-B7A0-C9B8E2B45975}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{066BF045-A8D3-4C22-B7A0-C9B8E2B45975}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7483C819-82CE-4BDE-91D3-DE132DF35FE6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7483C819-82CE-4BDE-91D3-DE132DF35FE6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7483C819-82CE-4BDE-91D3-DE132DF35FE6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7483C819-82CE-4BDE-91D3-DE132DF35FE6}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal
