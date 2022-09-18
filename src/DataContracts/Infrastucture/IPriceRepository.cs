@@ -1,6 +1,6 @@
-using WebApi.Model;
+using DataConrats.Model;
 
-namespace WebApi.Infrastucture;
+namespace DataConrats.Infrastucture;
 
 /// <summary>
 /// An abstraction on database table with price data. (CRUD)

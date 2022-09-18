@@ -1,4 +1,4 @@
-using WebApi.Infrastucture;
+using DataConrats.Infrastucture;
 
 namespace WebApi.Domain;
 
