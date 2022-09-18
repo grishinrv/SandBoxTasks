@@ -1,4 +1,4 @@
-namespace WebApi.Model;
+namespace DataConrats.Model;
 
 public class PriceData
 {

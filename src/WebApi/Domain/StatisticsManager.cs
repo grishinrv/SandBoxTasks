@@ -1,4 +1,4 @@
-using WebApi.Infrastucture;
+using DataConrats.Infrastructure;
 
 namespace WebApi.Domain;
 
@@ -12,7 +12,7 @@ public sealed class StatisticsManager
 
     public void SomeUsefulMethod()
     {
-        var prices = _repository.GetPrices(DateTime.Now, DateTime.Today - TimeSpan.FromHours(48));
+        var prices = _repository.GetPricesData(DateTime.Now, DateTime.Today - TimeSpan.FromHours(48));
         //todo
     }
 }
