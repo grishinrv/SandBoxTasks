@@ -43,7 +43,7 @@ public sealed class DbInitializer
             SqlCommand command = new SqlCommand("SELECT COUNT(*) FROM [statistics].[prices]", connection);
             command.Connection.Open();
             int pricesCount = (int)command.ExecuteScalar();
-            if (pricesCount > 0)
+            if (pricesCount == 0)
                 FillDataSet(connection);
         }
     }
