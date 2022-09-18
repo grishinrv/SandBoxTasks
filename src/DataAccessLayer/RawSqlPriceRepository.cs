@@ -1,3 +1,4 @@
+using System.Data.SqlClient;
 using DataConrats.Infrastructure;
 using DataConrats.Model;
 
@@ -17,7 +18,29 @@ public class RawSqlPriceRepository : IPriceRepository
 
     public List<PriceData> GetPrices(string cityOfPriceRegistration)
     {
-        throw new NotImplementedException();
+        using (SqlConnection connection = _connectionFactory.Create())
+        {
+            SqlCommand command = new SqlCommand("SELECT COUNT(*) FROM [statistics].[prices] WHERE [city_of_registration] = @city", connection);
+            command.Parameters.AddWithValue("@city", cityOfPriceRegistration);
+            command.Connection.Open();
+            SqlDataReader reader = command.ExecuteReader();
+            List<PriceData> results = new();
+            while (reader.Read())
+            {
+                DateTime time = (DateTime)reader["registered_time"];
+                string city = (string)reader["city_of_registration"];
+                decimal val = (decimal)reader["value"];
+                Good good = (Good)(int)reader["good_id"];
+                results.Add(new PriceData
+                {
+                    RegisteredTime = time,
+                    Value = val,
+                    CityOfRegistration = city,
+                    Good = good
+                });
+            }
+            return results;
+        }
     }
 
     public List<PriceData> GetPrices(DateTime since, DateTime till, List<string> citiesOfPriceRegistration = null)
