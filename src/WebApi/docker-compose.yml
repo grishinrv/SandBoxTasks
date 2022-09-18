@@ -4,6 +4,9 @@ services:
     container_name: mssql
     volumes:
       - ./setup.sql:/usr/config/setup.sql
+      - "db_mssql_statistics:/var/opt/mssql-extensibility"
+      - "db_mssql_statistics_data:/var/opt/mssql-extensibility/data"     
+      - "db_mssql_statistics_log:/var/opt/mssql-extensibility/log"
     ports:
       - 9933:1433
     environment:
@@ -13,4 +16,7 @@ services:
       - MSSQL_DB=price_stat
       - MSSQL_USER=${USER_LOGIN}
       - MSSQL_PASSWORD=${USER_PASSWORD}
-  
+volumes:
+  db_mssql_statistics:
+  db_mssql_statistics_data:
+  db_mssql_statistics_log:
