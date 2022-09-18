@@ -1,13 +1,11 @@
-﻿using System.Data;
-using System.Data.Common;
-using System.Data.SqlClient;
-using Microsoft.Extensions.Configuration;
+﻿using System.Data.SqlClient;
+using DataConrats.Infrastructure;
 
 namespace DataAccessLayer;
 
 public sealed class DbInitializer
 {
-    private readonly string _connectionString;
+    private readonly IConnectionFactory _connectionFactory;
     private readonly List<string> _cities = new()
     {
         "Podolsk",
@@ -31,14 +29,14 @@ public sealed class DbInitializer
         DateTime.Parse("2022.10.01")
     };
 
-    public DbInitializer(IConfiguration config)
+    public DbInitializer(IConnectionFactory connectionFactory)
     {
-        _connectionString = config.GetConnectionString("StatisticsDbConnectionString");
+        _connectionFactory = connectionFactory;
     }
 
     public void Init()
     {
-        using (SqlConnection connection = new SqlConnection(_connectionString))
+        using (SqlConnection connection = _connectionFactory.Create())
         {
             SqlCommand command = new SqlCommand("SELECT COUNT(*) FROM [statistics].[prices]", connection);
             command.Connection.Open();

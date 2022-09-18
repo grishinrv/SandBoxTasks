@@ -1,10 +1,15 @@
-using DataConrats.Infrastucture;
+using DataConrats.Infrastructure;
 using DataConrats.Model;
 
 namespace DataAccessLayer;
 
 public class RawSqlPriceRepository : IPriceRepository
 {
+    private readonly IConnectionFactory _connectionFactory;
+    public RawSqlPriceRepository(IConnectionFactory connectionFactory)
+    {
+        _connectionFactory = connectionFactory;
+    }
     public void CreatePriceData(PriceData dto)
     {
         throw new NotImplementedException();

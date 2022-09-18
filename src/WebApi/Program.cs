@@ -1,4 +1,6 @@
 using DataAccessLayer;
+using DataConrats.Infrastructure;
+using DataContracts.Infrastructure;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -10,6 +12,7 @@ builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
 builder.Services.AddTransient<DbInitializer>();
+builder.Services.AddSingleton<IConnectionFactory, ConnectionFactory>();
 
 WebApplication app = builder.Build();
 
