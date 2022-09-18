@@ -12,7 +12,7 @@ builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
 builder.Services.AddTransient<DbInitializer>();
-builder.Services.AddScoped<IPriceRepository, RawSqlPriceRepository>();
+builder.Services.AddTransient<IPriceRepository, RawSqlPriceRepository>();
 builder.Services.AddSingleton<IConnectionFactory, ConnectionFactory>();
 
 WebApplication app = builder.Build();
@@ -29,5 +29,6 @@ app.UseAuthorization();
 app.MapControllers();
 
 app.Services.GetService<DbInitializer>().Init();
+app.Services.GetService<IPriceRepository>().GetPricesData("Podolsk");
 
 app.Run();

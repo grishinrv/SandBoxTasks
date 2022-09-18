@@ -66,6 +66,7 @@ public sealed class DbInitializer
                             command.Parameters.AddWithValue("@value", (decimal)random.Next(10, 1000));
                             command.Parameters.AddWithValue("@city", city);
                             command.Parameters.AddWithValue("@good", good);
+                            command.Transaction = transaction;
                             command.ExecuteNonQuery();
                         }
                     }
