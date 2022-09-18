@@ -1,5 +1,5 @@
 using System.Data.SqlClient;
-using DataConrats.Infrastructure;
+using DataContracts.Infrastructure;
 using DataConrats.Model;
 
 namespace DataAccessLayer;

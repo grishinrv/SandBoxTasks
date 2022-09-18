@@ -1,4 +1,4 @@
-using DataConrats.Infrastructure;
+using DataContracts.Infrastructure;
 
 namespace WebApi.Domain;
 
