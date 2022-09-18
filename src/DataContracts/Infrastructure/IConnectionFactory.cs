@@ -1,6 +1,6 @@
 using System.Data.SqlClient;
 
-namespace DataConrats.Infrastructure;
+namespace DataContracts.Infrastructure;
 
 public interface IConnectionFactory
 {

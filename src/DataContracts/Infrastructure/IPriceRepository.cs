@@ -1,6 +1,6 @@
 using DataConrats.Model;
 
-namespace DataConrats.Infrastructure;
+namespace DataContracts.Infrastructure;
 
 /// <summary>
 /// An abstraction on database table with price data. (CRUD)

@@ -1,5 +1,4 @@
 using System.Data.SqlClient;
-using DataConrats.Infrastructure;
 using Microsoft.Extensions.Configuration;
 
 namespace DataContracts.Infrastructure;

@@ -1,5 +1,4 @@
 using DataAccessLayer;
-using DataConrats.Infrastructure;
 using DataContracts.Infrastructure;
 
 var builder = WebApplication.CreateBuilder(args);
