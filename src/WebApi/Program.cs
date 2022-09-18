@@ -1,6 +1,4 @@
-using System.Configuration;
 using DataAccessLayer;
-using DataAccessLayer.Configuration;
 
 var builder = WebApplication.CreateBuilder(args);
 
