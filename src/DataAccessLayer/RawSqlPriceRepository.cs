@@ -11,9 +11,34 @@ public class RawSqlPriceRepository : IPriceRepository
     {
         _connectionFactory = connectionFactory;
     }
+    
+    /// <summary>
+    /// Makes INSERT INTO ...
+    /// </summary>
+    /// <param name="dto">data transfer object</param>
     public void CreatePriceData(PriceData dto)
     {
-
+        using (SqlConnection connection = _connectionFactory.Create())
+        {
+            try
+            {
+                string sql = "INSERT ....";// SqlCommnd INSERT dto.value dto.City dot.Good dto.Date
+                SqlCommand command = new SqlCommand(sql, connection);
+                command.Connection.Open();
+                // Execute Command (Sql DB Should  insert them)
+                // ExecuteNonQuery - and it should return 1
+                int numberOfInsertedRows = command.ExecuteNonQuery();
+                if (numberOfInsertedRows != 1)
+                {
+                    throw new ApplicationException($"Danger! inserted {numberOfInsertedRows} rows!");
+                }
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e);
+                throw;
+            }
+        }
     }
 
     public List<PriceData> GetPricesData(string cityOfPriceRegistration)
