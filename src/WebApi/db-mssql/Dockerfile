@@ -9,6 +9,6 @@ COPY . /usr/src/app/
 
 RUN chmod +x /usr/src/app/import-data.sh
 
-USER sa
+USER mssql
 ENTRYPOINT /bin/bash ./entrypoint.sh
 
