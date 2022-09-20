@@ -57,8 +57,10 @@ public class RawSqlPriceRepository : IPriceRepository
         {
             try
             {
-                SqlCommand command = new SqlCommand("SELECT * FROM [statistics].[prices] WHERE [city_of_registration] = @city", connection);
-                command.Parameters.AddWithValue("@city", citiesOfPriceRegistration);
+                SqlCommand command = new SqlCommand(@"SELECT * FROM [statistics].prices WHERE registered_time >= @since AND 
+                                                    registered_time < @till AND city_of_registration IN ('Podolsk', 'Moscow')", connection);
+                command.Parameters.AddWithValue("@since", since);
+                command.Parameters.AddWithValue("@till", till);
                 command.Connection.Open();
                 SqlDataReader reader = command.ExecuteReader();
                 List<PriceData> results = new();
