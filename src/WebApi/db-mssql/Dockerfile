@@ -28,6 +28,10 @@ WORKDIR /usr/src/app
 
 COPY . /usr/src/app/
 
+# create a file where we will store setup.sql content after parsing
+RUN touch setup_parsed.sql
+RUN chown mssql setup_parsed.sql
+
 RUN chmod +x /usr/src/app/import-data.sh
 
 USER mssql
