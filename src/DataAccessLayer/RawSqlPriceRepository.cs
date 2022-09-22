@@ -1,7 +1,6 @@
-using System.Data.SqlClient;
-using DataContracts.Infrastructure;
 using DataConrats.Model;
-using Microsoft.SqlServer.Server;
+using DataContracts.Infrastructure;
+using System.Data.SqlClient;
 
 namespace DataAccessLayer;
 
@@ -27,7 +26,6 @@ public class RawSqlPriceRepository : IPriceRepository
                 command.Parameters.AddWithValue("@city", dto.CityOfRegistration);
                 command.Parameters.AddWithValue("@date", dto.RegisteredTime);
                 command.Connection.Open();
-                SqlDataReader reader = command.ExecuteReader();
 
                 int numberOfInsertedRows = command.ExecuteNonQuery();
                 if (numberOfInsertedRows != 1)
