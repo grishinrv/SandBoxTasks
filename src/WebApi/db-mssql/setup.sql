@@ -21,3 +21,12 @@ CREATE TABLE [statistics].[prices] (
 );
 GO
 
+CREATE TABLE [statistics].[goods_dictionary] (
+    [id] INT NOT NULL,
+    [Name] NVARCHAR(64) NOT NULL
+);
+GO
+CREATE UNIQUE INDEX [statistics].UI_goods_dictionary_name
+    ON [statistics].[goods_dictionary] (Name);
+GO
+
