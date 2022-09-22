@@ -1,6 +1,7 @@
 using System.Data.SqlClient;
 using DataContracts.Infrastructure;
 using DataConrats.Model;
+using Microsoft.SqlServer.Server;
 
 namespace DataAccessLayer;
 
@@ -12,21 +13,22 @@ public class RawSqlPriceRepository : IPriceRepository
         _connectionFactory = connectionFactory;
     }
     
-    /// <summary>
-    /// Makes INSERT INTO ...
-    /// </summary>
-    /// <param name="dto">data transfer object</param>
     public void CreatePriceData(PriceData dto)
     {
         using (SqlConnection connection = _connectionFactory.Create())
         {
             try
             {
-                string sql = "INSERT ....";// SqlCommnd INSERT dto.value dto.City dot.Good dto.Date
+                string sql = "INSERT INTO [statistics].prices (good_id, good_name, [value], city_of_registration, registered_time) " +
+                             "VALUES (@name, @price, @city, @date)";
                 SqlCommand command = new SqlCommand(sql, connection);
+                command.Parameters.AddWithValue("@name", dto.Good.ToString());
+                command.Parameters.AddWithValue("@price", dto.Value);
+                command.Parameters.AddWithValue("@city", dto.CityOfRegistration);
+                command.Parameters.AddWithValue("@date", dto.RegisteredTime);
                 command.Connection.Open();
-                // Execute Command (Sql DB Should  insert them)
-                // ExecuteNonQuery - and it should return 1
+                SqlDataReader reader = command.ExecuteReader();
+
                 int numberOfInsertedRows = command.ExecuteNonQuery();
                 if (numberOfInsertedRows != 1)
                 {
