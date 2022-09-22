@@ -2,7 +2,7 @@
 #do this in a loop because the timing for when the SQL instance is ready is indeterminate
 for i in {1..50};
 do
-    /opt/mssql-tools18/bin/sqlcmd -S localhost -U sa -P ${!ADMIN_PASSWORD} -d master -i setup.sql
+    /opt/mssql-tools18/bin/sqlcmd -S localhost -C -U sa -P $(eval echo \$\{MSSQL_SA_PASSWORD\}) -i setup.sql
     if [ $? -eq 0 ]
     then
         echo "setup.sql completed"
