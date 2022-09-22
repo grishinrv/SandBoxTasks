@@ -8,11 +8,14 @@ public sealed class DbInitializer
     private readonly IConnectionFactory _connectionFactory;
     private readonly List<string> _cities = new()
     {
-        "Podolsk",
-        "Moscow",
-        "Archangelsk",
-        "Checkhov",
-        "Krasnoyarsk"
+        "Oslo",
+        "Kosice",
+        "Vancouver",
+        "Helsinki",
+        "Tallinn",
+        "Goteborg",
+        "Drammen",
+        "Seattle"
     };
 
     private readonly List<DateTime> _dates = new()
