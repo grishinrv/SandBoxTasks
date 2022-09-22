@@ -21,7 +21,7 @@ public class RawSqlPriceRepository : IPriceRepository
                 string sql = "INSERT INTO [statistics].prices (good_id, good_name, [value], city_of_registration, registered_time) " +
                              "VALUES (@name, @price, @city, @date)";
                 SqlCommand command = new SqlCommand(sql, connection);
-                command.Parameters.AddWithValue("@name", dto.Good.ToString());
+                command.Parameters.AddWithValue("@name", dto.GoodItem.ToString());
                 command.Parameters.AddWithValue("@price", dto.Value);
                 command.Parameters.AddWithValue("@city", dto.CityOfRegistration);
                 command.Parameters.AddWithValue("@date", dto.RegisteredTime);
@@ -63,7 +63,7 @@ public class RawSqlPriceRepository : IPriceRepository
                         RegisteredTime = time,
                         Value = val,
                         CityOfRegistration = city,
-                        Good = good
+                        GoodItem = good
                     });
                 }
                 return results;
@@ -114,7 +114,7 @@ public class RawSqlPriceRepository : IPriceRepository
                 RegisteredTime = time,
                 Value = val,
                 CityOfRegistration = city,
-                Good = good
+                GoodItem = good
             });
         }
 
@@ -165,7 +165,7 @@ public class RawSqlPriceRepository : IPriceRepository
                 {
                     DateTime time = (DateTime)reader["registered_time"];
                     string city = (string)reader["city_of_registration"];
-                    string storeName = (string)reader["store_name"];
+                    // string storeName = (string)reader["store_name"];
                     decimal val = (decimal)reader["value"];
                     Good good = (Good)(int)reader["good_id"];
                     results.Add(new PriceData
@@ -173,8 +173,8 @@ public class RawSqlPriceRepository : IPriceRepository
                         RegisteredTime = time,
                         Value = val,
                         CityOfRegistration = city,
-                        Market = store,
-                        Good = good
+                        // Market = store,
+                        GoodItem = good
                     });
                 }
                 return results;

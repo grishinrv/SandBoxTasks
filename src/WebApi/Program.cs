@@ -1,5 +1,7 @@
 using DataAccessLayer;
+using DataAccessLayer.ORM;
 using DataContracts.Infrastructure;
+using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -9,6 +11,9 @@ builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
+
+// todo fing out how to get connection string from apssettings.json
+builder.Services.AddDbContext<PricesDataBaseContext>(o => o.UseSqlServer(""));
 
 builder.Services.AddTransient<DbInitializer>();
 builder.Services.AddTransient<IPriceRepository, RawSqlPriceRepository>();
