@@ -12,7 +12,7 @@ BEGIN
      , CONSTRAINT PK_goods_dictionary PRIMARY KEY CLUSTERED (id)
   );
 
-  CREATE UNIQUE INDEX [statistics].UI_goods_dictionary_name
+  CREATE UNIQUE INDEX UI_goods_dictionary_name
      ON [statistics].[goods_dictionary] (Name);
 
   INSERT INTO [statistics].[goods.dictionary] ([id], [Name])

@@ -26,8 +26,20 @@ do
   envsubst < $x > temp.sql
   log "$x parsed. Executing..."
   /opt/mssql-tools18/bin/sqlcmd -S localhost -C -U sa -P $(eval echo \$\{MSSQL_SA_PASSWORD\}) -i temp.sql
+  if [ $? -eq 0 ]
+  then
+    log "$x executed succesfully"
+  else
+    log "error executing $x"
+    break
+  fi
 done
 
-rm temp.sql
-
-log "DB setup completed"
+if [ $? -eq 0 ]
+then
+  log "DB setup completed succesfully"
+  rm temp.sql
+else
+  log "DB setuo error!"
+  sleep 1
+fi
