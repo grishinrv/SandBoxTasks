@@ -3,7 +3,7 @@ services:
     image: 'db-price-statistics-mssql:v1'
     container_name: mssql
     volumes:
-      - ./db-mssql/setup.sql:/usr/src/app/setup.sql
+      - ./db-mssql/import:/usr/src/app/import
       - "db_mssql_statistics:/var/opt/mssql-extensibility"
       - "db_mssql_statistics_data:/var/opt/mssql-extensibility/data"     
       - "db_mssql_statistics_log:/var/opt/mssql-extensibility/log"

@@ -22,17 +22,19 @@ RUN /bin/bash -c "source ~/.bashrc"
 # clean cashes
 RUN apt-get clean && rm -rf /var/lib/apt/lists*
 
-# copy scripts from local machine
-RUN mkdir -p /usr/src/app
+RUN mkdir -p /usr/src/app/import
 WORKDIR /usr/src/app
+COPY . /usr/src/app
+RUN chmod +x /usr/src/app/import-data.sh
 
-COPY . /usr/src/app/
+# copy scripts from local machine
+# WORKDIR /usr/src/app/import
+# COPY . /usr/src/app/import
 
 # create a file where we will store setup.sql content after parsing
-RUN touch setup_parsed.sql
-RUN chown mssql setup_parsed.sql
+RUN touch temp.sql
+RUN chown mssql temp.sql
 
-RUN chmod +x /usr/src/app/import-data.sh
 
 USER mssql
 ENTRYPOINT /bin/bash ./entrypoint.sh
