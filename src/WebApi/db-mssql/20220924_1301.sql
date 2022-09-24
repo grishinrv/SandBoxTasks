@@ -1,0 +1,16 @@
+USE [$MSSQL_DB];
+
+IF NOT EXISTS 
+    (SELECT name  
+     FROM master.sys.server_principals
+     WHERE name = 'LoginName')
+BEGIN
+  CREATE LOGIN [$MSSQL_USER] WITH PASSWORD = '$MSSQL_PASSWORD';
+  CREATE USER [$MSSQL_USER] FOR LOGIN [$MSSQL_USER];
+  ALTER SERVER ROLE sysadmin ADD MEMBER [$MSSQL_USER];
+
+  CREATE SCHEMA [statistics];
+  ALTER USER [$MSSQL_USER] WITH DEFAULT_SCHEMA = 'statistics';
+END
+GO
+
