@@ -6,7 +6,7 @@ log () {
 # check in a loop if the SQL SERVER is up; because the timing for when the SQL instance is ready is indeterminate
 for i in {1..50};
 do
-  /opt/mssql-tools18/bin/sqlcmd -S localhost -C -U sa -P $(eval echo \$\{MSSQL_SA_PASSWORD\}) -Q "SELECT 1=1;"
+  /opt/mssql-tools18/bin/sqlcmd -S localhost -C -U sa -P $(eval echo \$\{MSSQL_SA_PASSWORD\}) -Q "SELECT 1;"
   if [ $? -eq 0 ]
   then
     log "SQL SERVER is ready"
@@ -44,7 +44,3 @@ else
   sleep 1
 fi
 
-for i in {1..50000};
-do
-    sleep 1
-done
