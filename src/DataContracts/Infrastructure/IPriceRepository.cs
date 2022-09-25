@@ -17,6 +17,5 @@ public interface IPriceRepository
     /// <param name="citiesOfPriceRegistration">if null then all known cities</param>
     /// <returns></returns>
     List<PriceData> GetPricesData(DateTime since, DateTime till, List<string> citiesOfPriceRegistration = null);
-    // todo any overloads GetPrices reqired in business logic classes to select data from DB
     List<PriceData> GetPricesData(List<Good> goods, Store store);
 }

@@ -11,7 +11,6 @@ public class PriceData
     public decimal Value { get; set; }
     [Column("city_of_registration")]
     public string CityOfRegistration { get; set; }
-    // public Store Market { get; set; }
     [Column("good_id")]
     public Good GoodItem { get; set; }
 }
