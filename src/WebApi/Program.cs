@@ -11,6 +11,7 @@ builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
 builder.Services.AddTransient<DbInitializer>();
+// builder.Services.AddTransient<IPriceRepository, RawSqlPriceRepository>();
 builder.Services.AddTransient<IPriceRepository, RawSqlPriceRepository>();
 builder.Services.AddSingleton<IConnectionFactory, ConnectionFactory>();
 

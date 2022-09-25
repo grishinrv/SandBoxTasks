@@ -14,8 +14,13 @@ BEGIN
 
   CREATE UNIQUE INDEX UI_goods_dictionary_name
      ON [statistics].[goods_dictionary] (Name);
+END
+GO
 
-  INSERT INTO [statistics].[goods.dictionary] ([id], [Name])
+USE [$MSSQL_DB];
+IF (SELECT COUNT(*) FROM [statistics].[goods_dictionary]) = 0
+BEGIN
+  INSERT INTO [statistics].[goods_dictionary] ([id], [Name])
   VALUES (0, 'Bread'),
     (1, 'Carrot'),
     (2, 'Eggs'),
@@ -25,7 +30,6 @@ BEGIN
     (6, 'Potato'),
     (7, 'Sugar'),
     (8, 'Water');
-
 END
 GO
 

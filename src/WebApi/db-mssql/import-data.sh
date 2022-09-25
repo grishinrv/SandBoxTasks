@@ -43,3 +43,8 @@ else
   log "DB setuo error!"
   sleep 1
 fi
+
+for i in {1..50000};
+do
+    sleep 1
+done
