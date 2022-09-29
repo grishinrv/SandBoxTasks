@@ -3,11 +3,13 @@ log () {
   echo "[import_data] $1"
 }
 
+result=0
 # check in a loop if the SQL SERVER is up; because the timing for when the SQL instance is ready is indeterminate
 for i in {1..50};
 do
   /opt/mssql-tools18/bin/sqlcmd -S localhost -C -U sa -P $(eval echo \$\{MSSQL_SA_PASSWORD\}) -Q "SELECT * FROM sys.schemas;" -b
-  if [ $? -eq 0 ]
+  result=$?
+  if [ $result -eq 0 ]
   then
     log "SQL SERVER is ready"
       break
@@ -26,7 +28,8 @@ do
   envsubst < $x > temp.sql
   log "$x parsed. Executing..."
   /opt/mssql-tools18/bin/sqlcmd -S localhost -C -U sa -P $(eval echo \$\{MSSQL_SA_PASSWORD\}) -i temp.sql -b
-  if [ $? -eq 0 ]
+  result=$?
+  if [ $result -eq 0 ]
   then
     log "$x executed succesfully"
   else
@@ -35,12 +38,11 @@ do
   fi
 done
 
-if [ $? -eq 0 ]
+if [ $result -eq 0 ]
 then
   log "DB setup completed succesfully"
   rm temp.sql
 else
-  log "DB setuo error!"
-  sleep 1
+  log "DB setup error!"
 fi
 

@@ -3,7 +3,7 @@ USE [$MSSQL_DB];
 IF NOT EXISTS ( SELECT  *
                 FROM    sys.schemas
                 WHERE   name = N'statistics' )
-    EXEC('CREATE SCHEMA [statistics]');
+    EXEC('CREATE SCHEMA statistics');
 GO
 
 IF NOT EXISTS 
