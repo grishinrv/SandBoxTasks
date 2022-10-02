@@ -16,6 +16,7 @@ builder.Services.AddSwaggerGen();
 builder.Services.AddDbContext<PricesDataBaseContext>(o => o.UseSqlServer(""));
 
 builder.Services.AddTransient<DbInitializer>();
+// builder.Services.AddTransient<IPriceRepository, RawSqlPriceRepository>();
 builder.Services.AddTransient<IPriceRepository, RawSqlPriceRepository>();
 builder.Services.AddSingleton<IConnectionFactory, ConnectionFactory>();
 
