@@ -8,6 +8,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DataContracts", "DataContra
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DataAccessLayer.ORM", "DataAccessLayer.ORM\DataAccessLayer.ORM.csproj", "{63821755-6C20-4839-98C6-5785EC333F8D}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Console", "Console", "{D1D37B84-7E31-47FC-A52C-B2C97BB9848E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GcDemo", "Console\GcDemo\GcDemo.csproj", "{6E1E13AF-C371-4DFF-8885-87789B3DD04E}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -30,5 +34,12 @@ Global
 		{63821755-6C20-4839-98C6-5785EC333F8D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{63821755-6C20-4839-98C6-5785EC333F8D}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{63821755-6C20-4839-98C6-5785EC333F8D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6E1E13AF-C371-4DFF-8885-87789B3DD04E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6E1E13AF-C371-4DFF-8885-87789B3DD04E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6E1E13AF-C371-4DFF-8885-87789B3DD04E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6E1E13AF-C371-4DFF-8885-87789B3DD04E}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{6E1E13AF-C371-4DFF-8885-87789B3DD04E} = {D1D37B84-7E31-47FC-A52C-B2C97BB9848E}
 	EndGlobalSection
 EndGlobal
